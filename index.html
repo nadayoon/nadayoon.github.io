@@ -2,43 +2,36 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
+  <title>BTCLove - 비트코인 정보 모음 앱</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BTCLOVE</title>
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f9f9f9;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-    }
-    h1 {
-      font-size: 2rem;
-      color: #333;
-      margin-bottom: 20px;
-    }
-    p {
-      font-size: 1.2rem;
-      color: #555;
-      line-height: 1.6;
-    }
-    .box {
-      background: #fff;
-      padding: 40px 60px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
+    body { background:#121212; color:#fff; font-family:sans-serif; text-align:center; }
+    header { padding:20px; font-size:24px; font-weight:bold; color:#F7931A; }
+    .hero { padding:50px 20px; }
+    .btn { background:#F7931A; color:#fff; padding:12px 20px; border-radius:8px; text-decoration:none; }
+    .features { display:grid; grid-template-columns:1fr 1fr; gap:20px; padding:30px; }
+    .card { background:#1E1E1E; padding:20px; border-radius:12px; }
+    footer { padding:20px; font-size:14px; color:#aaa; }
   </style>
 </head>
 <body>
-  <div class="box">
-    <h1>BTCLove Page</h1>
-   <p>I'm hosted with GitHub Pages.</p>
-  </div>
+  <header>🚀 BTCLove</header>
+
+  <section class="hero">
+    <h1>비트코인을 더 쉽게, 더 스마트하게</h1>
+    <p>도미넌스 · 김치프리미엄 · 최신뉴스까지 한눈에</p>
+    <a href="#" class="btn">앱 다운로드</a>
+  </section>
+
+  <section class="features">
+    <div class="card">📊 실시간 비트코인 시세</div>
+    <div class="card">🧭 도미넌스 & 김치프리미엄</div>
+    <div class="card">📰 최신 뉴스 & 인덱스</div>
+    <div class="card">🔔 맞춤형 알림 기능</div>
+  </section>
+
+  <footer>
+    © 2025 BTCLove. All rights reserved. | 문의: contact@btclove.com
+  </footer>
 </body>
 </html>
