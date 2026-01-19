@@ -2,36 +2,253 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>BTCLove - 비트코인 정보 모음 앱</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BTCLove - 비트코인 정보 모음 앱</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    body { background:#121212; color:#fff; font-family:sans-serif; text-align:center; }
-    header { padding:20px; font-size:24px; font-weight:bold; color:#F7931A; }
-    .hero { padding:50px 20px; }
-    .btn { background:#F7931A; color:#fff; padding:12px 20px; border-radius:8px; text-decoration:none; }
-    .features { display:grid; grid-template-columns:1fr 1fr; gap:20px; padding:30px; }
-    .card { background:#1E1E1E; padding:20px; border-radius:12px; }
-    footer { padding:20px; font-size:14px; color:#aaa; }
+    :root {
+      --bg: #0f0f17;
+      --card: #1a1a2e;
+      --accent: #F7931A;
+      --text: #e0e0ff;
+      --text-light: #a0a0cc;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacOSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(180deg, #1a1a2e 0%, var(--bg) 100%);
+      padding: 1.5rem 5%;
+      text-align: center;
+      border-bottom: 1px solid #2a2a40;
+    }
+
+    .logo {
+      font-size: 2.8rem;
+      font-weight: bold;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero {
+      padding: 5rem 5% 4rem;
+      text-align: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 6vw, 3.8rem);
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, var(--accent), #ffaa44);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      color: var(--text-light);
+      margin-bottom: 2.5rem;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .platforms {
+      padding: 3rem 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .platforms h2 {
+      text-align: center;
+      font-size: 2.4rem;
+      margin-bottom: 3rem;
+      color: var(--accent);
+    }
+
+    .platform-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .platform-card {
+      background: var(--card);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid #2a2a40;
+    }
+
+    .platform-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(247, 147, 26, 0.15);
+    }
+
+    .platform-header {
+      background: rgba(247, 147, 26, 0.12);
+      padding: 1.8rem;
+      text-align: center;
+      border-bottom: 1px solid #2a2a40;
+    }
+
+    .platform-header i {
+      font-size: 3.5rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .platform-header h3 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .platform-body {
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+
+    .features-list {
+      list-style: none;
+      margin: 1.5rem 0 2rem;
+      text-align: left;
+    }
+
+    .features-list li {
+      margin: 0.8rem 0;
+      padding-left: 1.8rem;
+      position: relative;
+    }
+
+    .features-list li::before {
+      content: "✓";
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    .download-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #000;
+      font-weight: bold;
+      padding: 0.9rem 2.2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s;
+      margin: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .download-btn:hover {
+      background: #ffaa44;
+      transform: translateY(-3px);
+    }
+
+    .coming-soon {
+      background: #333;
+      color: #aaa;
+      cursor: not-allowed;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 5% 2rem;
+      color: var(--text-light);
+      font-size: 0.95rem;
+      border-top: 1px solid #2a2a40;
+    }
+
+    @media (max-width: 768px) {
+      .hero { padding: 4rem 5% 3rem; }
+      .platforms h2 { font-size: 2rem; }
+    }
   </style>
 </head>
 <body>
-  <header>🚀 BTCLove</header>
+
+  <header>
+    <div class="logo">🚀 BTCLove</div>
+  </header>
 
   <section class="hero">
     <h1>비트코인을 더 쉽게, 더 스마트하게</h1>
-    <p>도미넌스 · 김치프리미엄 · 최신뉴스까지 한눈에</p>
-    <a href="https://play.google.com/store/apps/details?id=com.studionada.bitcoinlove&pcampaignid=web_share" class="btn">앱 다운로드</a>
+    <p>실시간 시세 · 도미넌스 · 김치프리미엄 · Fear & Greed · 최신 뉴스까지<br>모든 플랫폼에서 한눈에 확인하세요</p>
   </section>
 
-  <section class="features">
-    <div class="card">📊 실시간 비트코인 시세</div>
-    <div class="card">🧭 도미넌스 & 김치프리미엄</div>
-    <div class="card">📰 최신 뉴스 & 인덱스</div>
-    <div class="card">🔔 맞춤형 알림 기능</div>
+  <section class="platforms">
+    <h2>다운로드 가능한 플랫폼</h2>
+    
+    <div class="platform-grid">
+
+      <!-- Android -->
+      <div class="platform-card">
+        <div class="platform-header">
+          <i class="fab fa-android"></i>
+          <h3>Android</h3>
+        </div>
+        <div class="platform-body">
+          <ul class="features-list">
+            <li>실시간 비트코인 핵심 지표 한눈에</li>
+            <li>김치프리미엄 & 도미넌스 실시간 추적</li>
+            <li>맞춤형 푸시 알림 지원</li>
+            <li>다크 모드 최적화 UI</li>
+          </ul>
+          <a href="https://play.google.com/store/apps/details?id=com.studionada.bitcoinlove" class="download-btn">
+            <i class="fab fa-google-play"></i> Google Play에서 다운로드
+          </a>
+        </div>
+      </div>
+
+      <!-- iOS (Coming Soon) -->
+      <div class="platform-card">
+        <div class="platform-header">
+          <i class="fab fa-apple"></i>
+          <h3>iOS (Coming Soon)</h3>
+        </div>
+        <div class="platform-body">
+          <ul class="features-list">
+            <li>깔끔한 iOS 네이티브 스타일 UI 예정</li>
+            <li>위젯 지원 (예정)</li>
+            <li>빠른 성능 & 배터리 최적화</li>
+            <li>Apple Watch 연동 준비중</li>
+          </ul>
+          <a href="#" class="download-btn coming-soon">App Store 준비중</a>
+        </div>
+      </div>
+
+      <!-- PC 프로그램 -->
+      <div class="platform-card">
+        <div class="platform-header">
+          <i class="fas fa-desktop"></i>
+          <h3>PC 프로그램</h3>
+        </div>
+        <div class="platform-body">
+          <ul class="features-list">
+            <li>대화면 멀티 대시보드</li>
+            <li>실시간 차트 & 알림 트레이</li>
+            <li>Windows / macOS 지원 예정</li>
+            <li>키보드 단축키 & 커스터마이징</li>
+          </ul>
+          <a href="#" class="download-btn coming-soon">개발 진행중 (곧 공개)</a>
+        </div>
+      </div>
+
+    </div>
   </section>
 
   <footer>
-    © 2025 BTCLove. All rights reserved. | 문의: contact@btclove.com
+    © 2025–2026 BTCLove. All rights reserved.<br>
+    문의: contact@btclove.com | Made with ❤️ for Bitcoin Lovers
   </footer>
+
 </body>
 </html>
