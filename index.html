@@ -3,251 +3,244 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BTCLove - 비트코인 정보 모음 앱</title>
+  <title>마약황 Dev - Crypto & Tools</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     :root {
-      --bg: #0f0f17;
-      --card: #1a1a2e;
+      --bg: #0d0d1a;
+      --card: #16162a;
       --accent: #F7931A;
-      --text: #e0e0ff;
-      --text-light: #a0a0cc;
+      --accent-dark: #c76f00;
+      --text: #e5e5ff;
+      --text-muted: #a0a0cc;
+      --border: #2a2a45;
     }
 
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: -apple-system, BlinkMacOSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-family: system-ui, -apple-system, sans-serif;
       line-height: 1.6;
     }
 
     header {
-      background: linear-gradient(180deg, #1a1a2e 0%, var(--bg) 100%);
-      padding: 1.5rem 5%;
-      text-align: center;
-      border-bottom: 1px solid #2a2a40;
+      position: sticky;
+      top: 0;
+      background: rgba(13,13,26,0.9);
+      backdrop-filter: blur(10px);
+      padding: 1rem 5%;
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
+
+    nav {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     .logo {
-      font-size: 2.8rem;
+      font-size: 1.8rem;
       font-weight: bold;
       color: var(--accent);
-      margin-bottom: 0.5rem;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      margin-left: 2rem;
+      font-weight: 500;
     }
 
     .hero {
-      padding: 5rem 5% 4rem;
+      padding: 8rem 5% 6rem;
       text-align: center;
-      max-width: 1100px;
-      margin: 0 auto;
+      background: linear-gradient(to bottom, rgba(247,147,26,0.08), transparent);
     }
 
     .hero h1 {
-      font-size: clamp(2.2rem, 6vw, 3.8rem);
+      font-size: clamp(3rem, 8vw, 5.5rem);
       margin-bottom: 1rem;
-      background: linear-gradient(90deg, var(--accent), #ffaa44);
+      background: linear-gradient(90deg, var(--accent), #ffab4d);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
     .hero p {
-      font-size: 1.3rem;
-      color: var(--text-light);
-      margin-bottom: 2.5rem;
-      max-width: 680px;
-      margin-left: auto;
-      margin-right: auto;
+      font-size: 1.4rem;
+      color: var(--text-muted);
+      max-width: 720px;
+      margin: 0 auto 2.5rem;
     }
 
-    .platforms {
-      padding: 3rem 5%;
-      max-width: 1200px;
+    .projects {
+      padding: 4rem 5%;
+      max-width: 1400px;
       margin: 0 auto;
     }
 
-    .platforms h2 {
+    .projects h2 {
       text-align: center;
-      font-size: 2.4rem;
-      margin-bottom: 3rem;
+      font-size: 3rem;
+      margin-bottom: 4rem;
       color: var(--accent);
     }
 
-    .platform-grid {
+    .project-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 2.5rem;
     }
 
-    .platform-card {
+    .project-card {
       background: var(--card);
       border-radius: 16px;
       overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border: 1px solid #2a2a40;
+      border: 1px solid var(--border);
+      transition: all 0.35s ease;
     }
 
-    .platform-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(247, 147, 26, 0.15);
+    .project-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 25px 50px rgba(247,147,26,0.12);
+      border-color: var(--accent);
     }
 
-    .platform-header {
-      background: rgba(247, 147, 26, 0.12);
-      padding: 1.8rem;
-      text-align: center;
-      border-bottom: 1px solid #2a2a40;
-    }
-
-    .platform-header i {
-      font-size: 3.5rem;
+    .project-image {
+      height: 220px;
+      background: #111122;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
       color: var(--accent);
-      margin-bottom: 1rem;
     }
 
-    .platform-header h3 {
+    .project-content {
+      padding: 2rem;
+    }
+
+    .project-title {
       font-size: 1.8rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.8rem;
+      color: white;
     }
 
-    .platform-body {
-      padding: 2rem 1.5rem;
-      text-align: center;
+    .platforms {
+      display: flex;
+      gap: 1rem;
+      margin: 1rem 0;
+      font-size: 1.4rem;
     }
 
-    .features-list {
-      list-style: none;
-      margin: 1.5rem 0 2rem;
-      text-align: left;
+    .platform-icon.released { color: #4ade80; }
+    .platform-icon.beta { color: #fbbf24; }
+    .platform-icon.soon { color: var(--text-muted); }
+
+    .description {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      min-height: 80px;
     }
 
-    .features-list li {
-      margin: 0.8rem 0;
-      padding-left: 1.8rem;
-      position: relative;
-    }
-
-    .features-list li::before {
-      content: "✓";
-      color: var(--accent);
-      position: absolute;
-      left: 0;
-      font-weight: bold;
-    }
-
-    .download-btn {
+    .btn {
       display: inline-block;
       background: var(--accent);
-      color: #000;
+      color: black;
       font-weight: bold;
-      padding: 0.9rem 2.2rem;
+      padding: 0.8rem 1.8rem;
       border-radius: 50px;
       text-decoration: none;
       transition: all 0.3s;
-      margin: 0.5rem;
-      font-size: 1.1rem;
     }
 
-    .download-btn:hover {
-      background: #ffaa44;
+    .btn:hover {
+      background: #ffab4d;
       transform: translateY(-3px);
-    }
-
-    .coming-soon {
-      background: #333;
-      color: #aaa;
-      cursor: not-allowed;
     }
 
     footer {
       text-align: center;
-      padding: 3rem 5% 2rem;
-      color: var(--text-light);
-      font-size: 0.95rem;
-      border-top: 1px solid #2a2a40;
+      padding: 4rem 5% 3rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
     }
 
     @media (max-width: 768px) {
-      .hero { padding: 4rem 5% 3rem; }
-      .platforms h2 { font-size: 2rem; }
+      .hero { padding: 6rem 5% 4rem; }
+      .projects h2 { font-size: 2.4rem; }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="logo">🚀 BTCLove</div>
+    <nav>
+      <div class="logo">마약황 Dev</div>
+      <div class="nav-links">
+        <a href="#projects">Projects</a>
+        <a href="#">Blog</a>
+        <a href="#">Contact</a>
+      </div>
+    </nav>
   </header>
 
   <section class="hero">
-    <h1>비트코인을 더 쉽게, 더 스마트하게</h1>
-    <p>실시간 시세 · 도미넌스 · 김치프리미엄 · Fear & Greed · 최신 뉴스까지<br>모든 플랫폼에서 한눈에 확인하세요</p>
+    <h1>Crypto & Useful Tools</h1>
+    <p>비트코인부터 실생활 유틸리티까지,<br>직접 만들고 직접 쓰는 툴들을 공개합니다</p>
   </section>
 
-  <section class="platforms">
-    <h2>다운로드 가능한 플랫폼</h2>
-    
-    <div class="platform-grid">
+  <section class="projects" id="projects">
+    <h2>My Projects</h2>
 
-      <!-- Android -->
-      <div class="platform-card">
-        <div class="platform-header">
-          <i class="fab fa-android"></i>
-          <h3>Android</h3>
-        </div>
-        <div class="platform-body">
-          <ul class="features-list">
-            <li>실시간 비트코인 핵심 지표 한눈에</li>
-            <li>김치프리미엄 & 도미넌스 실시간 추적</li>
-            <li>맞춤형 푸시 알림 지원</li>
-            <li>다크 모드 최적화 UI</li>
-          </ul>
-          <a href="https://play.google.com/store/apps/details?id=com.studionada.bitcoinlove" class="download-btn">
-            <i class="fab fa-google-play"></i> Google Play에서 다운로드
+    <div class="project-grid">
+
+      <!-- BTCLove 예시 카드 -->
+      <div class="project-card">
+        <div class="project-image"><i class="fas fa-heart"></i></div>
+        <div class="project-content">
+          <h3 class="project-title">BTCLove</h3>
+          <div class="platforms">
+            <i class="fab fa-android platform-icon released" title="Released"></i>
+            <i class="fab fa-apple platform-icon soon" title="Coming Soon"></i>
+            <i class="fas fa-desktop platform-icon soon" title="In Development"></i>
+          </div>
+          <p class="description">
+            비트코인 핵심 지표(도미넌스, 김프, Fear&Greed, 뉴스)를 한 화면에서 보는 모음 앱
+          </p>
+          <a href="https://play.google.com/store/apps/details?id=com.studionada.bitcoinlove" class="btn" target="_blank">
+            Android 다운로드
           </a>
         </div>
       </div>
 
-      <!-- iOS (Coming Soon) -->
-      <div class="platform-card">
-        <div class="platform-header">
-          <i class="fab fa-apple"></i>
-          <h3>iOS (Coming Soon)</h3>
-        </div>
-        <div class="platform-body">
-          <ul class="features-list">
-            <li>깔끔한 iOS 네이티브 스타일 UI 예정</li>
-            <li>위젯 지원 (예정)</li>
-            <li>빠른 성능 & 배터리 최적화</li>
-            <li>Apple Watch 연동 준비중</li>
-          </ul>
-          <a href="#" class="download-btn coming-soon">App Store 준비중</a>
-        </div>
-      </div>
-
-      <!-- PC 프로그램 -->
-      <div class="platform-card">
-        <div class="platform-header">
-          <i class="fas fa-desktop"></i>
-          <h3>PC 프로그램</h3>
-        </div>
-        <div class="platform-body">
-          <ul class="features-list">
-            <li>대화면 멀티 대시보드</li>
-            <li>실시간 차트 & 알림 트레이</li>
-            <li>Windows / macOS 지원 예정</li>
-            <li>키보드 단축키 & 커스터마이징</li>
-          </ul>
-          <a href="#" class="download-btn coming-soon">개발 진행중 (곧 공개)</a>
+      <!-- 여기에 새 프로젝트 카드 추가 예시 -->
+      <!-- 
+      <div class="project-card">
+        <div class="project-image"><i class="fas fa-chart-line"></i></div>
+        <div class="project-content">
+          <h3 class="project-title">김프 트래커 Pro</h3>
+          <div class="platforms">
+            <i class="fab fa-android platform-icon beta"></i>
+            <i class="fas fa-desktop platform-icon released"></i>
+          </div>
+          <p class="description">
+            실시간 김치프리미엄 비교 + 알림 + 거래소 연동 툴
+          </p>
+          <a href="#" class="btn">자세히 보기</a>
         </div>
       </div>
+      -->
 
     </div>
   </section>
 
   <footer>
-    © 2025–2026 BTCLove. All rights reserved.<br>
-    문의: contact@btclove.com | Made with ❤️ for Bitcoin Lovers
+    © 2026 마약황 Dev<br>
+    Made with ❤️ for Crypto & Efficiency | contact@yourdomain.com
   </footer>
 
 </body>
