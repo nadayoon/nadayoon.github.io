@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>장기대전 - 계정 삭제 요청</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+      background: #0f0f0f;
+      color: #e0e0e0;
+      line-height: 1.8;
+    }
+    header {
+      background: linear-gradient(135deg, #1a1208 0%, #2d1f0a 100%);
+      border-bottom: 1px solid #C8A96E33;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    header h1 { font-size: 28px; font-weight: 700; color: #C8A96E; letter-spacing: 4px; }
+    header p { margin-top: 8px; font-size: 14px; color: #888; }
+    .container { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+    section { margin-bottom: 36px; }
+    h2 { font-size: 18px; font-weight: 700; color: #C8A96E; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #C8A96E33; }
+    p, li { font-size: 15px; color: #ccc; }
+    ul { padding-left: 20px; margin-top: 8px; }
+    li { margin-bottom: 6px; }
+    .badge { display: inline-block; background: #C8A96E22; border: 1px solid #C8A96E55; color: #C8A96E; font-size: 13px; padding: 4px 12px; border-radius: 20px; margin-bottom: 20px; }
+    .method-box { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 8px; padding: 20px; margin-top: 12px; }
+    .method-title { font-size: 15px; font-weight: 700; color: #C8A96E; margin-bottom: 8px; }
+    .warning-box { background: #2a0a0a; border: 1px solid #C0392B55; border-radius: 8px; padding: 16px 20px; margin-top: 12px; }
+    .warning-box li { color: #e07070; }
+    .email-btn {
+      display: inline-block;
+      margin-top: 16px;
+      background: linear-gradient(135deg, #C8A96E, #a07840);
+      color: #1a1208;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+    .email-btn:hover { opacity: 0.85; }
+    footer { text-align: center; padding: 30px; font-size: 13px; color: #555; border-top: 1px solid #222; }
+    footer a { color: #C8A96E; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>장기대전</h1>
+    <p>계정 삭제 요청</p>
+  </header>
+  <div class="container">
+    <span class="badge">계정 및 데이터 삭제</span>
+    <p>장기대전 앱에서 계정 및 관련 데이터를 삭제하는 방법을 안내합니다.</p>
+
+    <section style="margin-top:28px;">
+      <h2>방법 1 — 앱 내에서 직접 삭제</h2>
+      <p>앱에 로그인한 상태에서 아래 경로로 이동하면 즉시 계정을 삭제할 수 있습니다.</p>
+      <div class="method-box">
+        <div class="method-title">설정 → 계정 → 계정 삭제</div>
+        <p>삭제 즉시 모든 데이터가 서버에서 제거됩니다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>방법 2 — 이메일로 요청</h2>
+      <p>앱에 접근할 수 없는 경우 이메일로 삭제를 요청하실 수 있습니다.<br>
+      요청 접수 후 <strong style="color:#C8A96E;">영업일 기준 3일 이내</strong> 처리됩니다.</p>
+      <div class="method-box">
+        <div class="method-title">이메일 요청 시 포함할 내용</div>
+        <ul>
+          <li>가입 시 사용한 Google 계정 이메일</li>
+          <li>앱 내 닉네임</li>
+          <li>삭제 요청 사유 (선택)</li>
+        </ul>
+        <a class="email-btn" href="mailto:nadahacker@gmail.com?subject=[장기대전] 계정 삭제 요청&body=가입 이메일: %0A닉네임: %0A삭제 사유: ">
+          삭제 요청 이메일 보내기
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <h2>삭제되는 데이터</h2>
+      <div class="warning-box">
+        <ul>
+          <li>닉네임, 프로필 사진 URL</li>
+          <li>게임 기록 (승/패/무, 레이팅)</li>
+          <li>토큰 내역</li>
+          <li>Firebase 인증 계정</li>
+        </ul>
+      </div>
+      <p style="margin-top:12px; color:#888; font-size:13px;">※ 삭제된 데이터는 복구할 수 없습니다.</p>
+    </section>
+  </div>
+  <footer>
+    © 2026 장기대전 &nbsp;·&nbsp; <a href="index.html">홈</a> &nbsp;·&nbsp; <a href="privacy.html">개인정보처리방침</a>
+  </footer>
+</body>
+</html>

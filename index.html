@@ -3,222 +3,278 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>나다랩 - Crypto & Everyday Tools</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <title>장기대전 — 한국 전통 장기 AI 대전</title>
   <style>
-    :root {
-      --bg: #0d0d1a;
-      --card: #16162a;
-      --accent: #F7931A;
-      --text: #e5e5ff;
-      --muted: #a0a0cc;
-      --border: #2a2a45;
-    }
-    * { margin:0; padding:0; box-sizing:border-box; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: system-ui, sans-serif;
-      line-height: 1.5;
+      font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+      background: #0f0f0f;
+      color: #e0e0e0;
+      line-height: 1.7;
     }
     header {
       position: sticky;
       top: 0;
-      background: rgba(13,13,26,0.92);
+      background: rgba(26,18,8,0.95);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-      padding: 0.9rem 5%;
+      border-bottom: 1px solid #C8A96E33;
+      padding: 0 5%;
       z-index: 100;
     }
     nav {
-      max-width: 1400px;
+      max-width: 1100px;
       margin: auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      height: 60px;
     }
     .logo {
-      font-size: 1.6rem;
-      font-weight: bold;
-      color: var(--accent);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #C8A96E;
+      letter-spacing: 3px;
     }
     .nav-links a {
-      color: var(--text);
+      color: #ccc;
       text-decoration: none;
-      margin-left: 1.8rem;
-      font-weight: 500;
-    }
-    .hero {
-      padding: 6rem 5% 4rem;
-      text-align: center;
-    }
-    .hero h1 {
-      font-size: clamp(2.8rem, 7vw, 4.8rem);
-      margin-bottom: 0.8rem;
-      background: linear-gradient(90deg, var(--accent), #ffab4d);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .hero p {
-      font-size: 1.25rem;
-      color: var(--muted);
-      max-width: 680px;
-      margin: 0 auto;
-    }
-    .projects {
-      padding: 3rem 5%;
-      max-width: 1400px;
-      margin: auto;
-    }
-    .projects h2 {
-      text-align: center;
-      font-size: 2.4rem;
-      margin-bottom: 2.5rem;
-      color: var(--accent);
-    }
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.8rem;
-    }
-    .project-card {
-      background: var(--card);
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-    .project-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 16px 32px rgba(247,147,26,0.1);
-      border-color: var(--accent);
-    }
-    .project-image {
-      height: 140px;
-      background: #111122;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3.2rem;
-      color: var(--accent);
-    }
-    .project-content {
-      padding: 1.4rem 1.5rem;
-    }
-    .project-title {
-      font-size: 1.5rem;
-      margin-bottom: 0.6rem;
-    }
-    .platforms {
-      display: flex;
-      gap: 0.9rem;
-      margin: 0.7rem 0;
-      font-size: 1.3rem;
-    }
-    .platform-icon.released { color: #4ade80; }
-    .platform-icon.beta    { color: #fbbf24; }
-    .platform-icon.soon    { color: var(--muted); }
-    .description {
-      color: var(--muted);
-      font-size: 0.95rem;
-      margin-bottom: 1.2rem;
-      min-height: 60px;
-    }
-    .btn {
-      display: inline-block;
-      background: var(--accent);
-      color: black;
-      font-weight: 600;
-      padding: 0.6rem 1.4rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-size: 0.95rem;
-      transition: all 0.25s;
-    }
-    .btn:hover {
-      background: #ffab4d;
-      transform: translateY(-2px);
-    }
-    footer {
-      text-align: center;
-      padding: 2.5rem 5% 2rem;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
+      margin-left: 1.6rem;
       font-size: 0.9rem;
     }
-    @media (max-width: 768px) {
-      .hero { padding: 5rem 5% 3rem; }
-      .projects h2 { font-size: 2rem; }
+    .nav-links a:hover { color: #C8A96E; }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(160deg, #1a1208 0%, #0f0f0f 60%);
+      padding: 80px 5% 70px;
+      text-align: center;
+      border-bottom: 1px solid #C8A96E22;
     }
+    .hero-badge {
+      display: inline-block;
+      background: #C8A96E22;
+      border: 1px solid #C8A96E55;
+      color: #C8A96E;
+      font-size: 12px;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 700;
+      color: #C8A96E;
+      letter-spacing: 6px;
+      margin-bottom: 16px;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: #aaa;
+      max-width: 560px;
+      margin: 0 auto 36px;
+    }
+    .store-buttons {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .store-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #C8A96E;
+      color: #1a1208;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .store-btn:hover { background: #dfc080; transform: translateY(-2px); }
+    .store-btn.outline {
+      background: transparent;
+      border: 1px solid #C8A96E;
+      color: #C8A96E;
+    }
+    .store-btn.outline:hover { background: #C8A96E22; }
+
+    /* Features */
+    .features {
+      max-width: 1100px;
+      margin: 70px auto;
+      padding: 0 5%;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #C8A96E;
+      letter-spacing: 3px;
+      margin-bottom: 40px;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .feature-card {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 12px;
+      padding: 28px 24px;
+      transition: all 0.25s;
+    }
+    .feature-card:hover {
+      border-color: #C8A96E55;
+      transform: translateY(-4px);
+    }
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 14px;
+    }
+    .feature-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #C8A96E;
+      margin-bottom: 8px;
+    }
+    .feature-card p {
+      font-size: 0.9rem;
+      color: #999;
+    }
+
+    /* Download */
+    .download {
+      background: linear-gradient(135deg, #1a1208, #2d1f0a);
+      border-top: 1px solid #C8A96E22;
+      border-bottom: 1px solid #C8A96E22;
+      padding: 60px 5%;
+      text-align: center;
+    }
+    .download h2 {
+      font-size: 1.8rem;
+      color: #C8A96E;
+      letter-spacing: 4px;
+      margin-bottom: 12px;
+    }
+    .download p {
+      color: #aaa;
+      margin-bottom: 30px;
+    }
+    .platform-badges {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .platform-badge {
+      background: #C8A96E;
+      color: #1a1208;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 10px 22px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .platform-badge:hover { background: #dfc080; }
+    .platform-badge.soon {
+      background: transparent;
+      border: 1px solid #555;
+      color: #666;
+      cursor: default;
+    }
+
+    footer {
+      text-align: center;
+      padding: 36px 5%;
+      color: #555;
+      font-size: 0.85rem;
+      border-top: 1px solid #222;
+    }
+    footer a { color: #C8A96E; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
   <header>
     <nav>
-      <div class="logo">나다랩</div>
+      <div class="logo">장기대전</div>
       <div class="nav-links">
-        <a href="#projects">Projects</a>
-        <a href="#">Blog</a>
-        <a href="#">Contact</a>
+        <a href="#features">특징</a>
+        <a href="#download">다운로드</a>
+        <a href="privacy.html">개인정보처리방침</a>
       </div>
     </nav>
   </header>
 
   <section class="hero">
-    <h1>Crypto & Everyday Tools</h1>
-    <p>비트코인부터 실생활 편의 툴까지,<br>직접 만들고 쓰는 유용한 프로그램들</p>
+    <div class="hero-badge">한국 전통 장기</div>
+    <h1>장기대전</h1>
+    <p>AI와 토큰을 걸고 대결하는 한국 전통 장기.<br>9단계 AI와 4가지 프로 포진으로 실력을 키워보세요.</p>
+    <div class="store-buttons">
+      <a href="https://apps.apple.com/kr/app/id6761509325" class="store-btn" target="_blank" rel="noopener">
+        App Store
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.nadahacker.janggi_betting" class="store-btn outline" target="_blank" rel="noopener">
+        Google Play
+      </a>
+    </div>
   </section>
 
-  <section class="projects" id="projects">
-    <h2>My Tools</h2>
-    <div class="project-grid">
-
-      <!-- BTCLove -->
-      <div class="project-card">
-        <div class="project-image"><i class="fas fa-heart"></i></div>
-        <div class="project-content">
-          <h3 class="project-title">BTCLove</h3>
-          <div class="platforms">
-            <i class="fab fa-android platform-icon released" title="Released"></i>
-            <i class="fab fa-apple platform-icon soon" title="Coming Soon"></i>
-            <i class="fas fa-desktop platform-icon soon" title="In Development"></i>
-          </div>
-          <p class="description">
-            비트코인 핵심 지표(도미넌스, 김프, Fear&Greed, 뉴스)를 한 화면에서 보는 모음 앱
-          </p>
-          <a href="https://play.google.com/store/apps/details?id=com.studionada.bitcoinlove" 
-             class="btn" target="_blank" rel="noopener">
-            Android 다운로드
-          </a>
-        </div>
+  <section class="features" id="features">
+    <div class="section-title">주요 특징</div>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🤖</div>
+        <h3>9단계 AI</h3>
+        <p>입문부터 전설까지 9단계 난이도. 후반부엔 더 깊게 탐색하는 Tapered Search로 강력한 AI 대전.</p>
       </div>
-
-      <!-- NadaFile -->
-      <div class="project-card">
-        <div class="project-image"><i class="fas fa-folder-open"></i></div>
-        <div class="project-content">
-          <h3 class="project-title">NadaFile</h3>
-          <div class="platforms">
-            <i class="fas fa-desktop platform-icon released" title="Released (Windows)"></i>
-            <i class="fab fa-android platform-icon soon" title="In Development"></i>
-            <i class="fab fa-apple platform-icon soon" title="Coming Soon"></i>
-          </div>
-          <p class="description">
-            간결하고 빠른 FTP/FTPS 클라이언트. Quick Connect, Site Manager, EPSV 지원, 듀얼 패널 파일 전송 편리.
-          </p>
-          <a href="https://drive.google.com/file/d/1hBolenChYK0QnxzIG0PcMtn31DgBdenf/view?usp=sharing" 
-             class="btn" target="_blank" rel="noopener noreferrer">
-            PC 다운로드 (Windows)
-          </a>
-        </div>
+      <div class="feature-card">
+        <div class="feature-icon">📖</div>
+        <h3>프로 기보 오프닝북</h3>
+        <p>원앙마, 귀마, 면상, 우상마 4가지 포진을 랜덤으로 구사하는 실전형 AI.</p>
       </div>
+      <div class="feature-card">
+        <div class="feature-icon">🪙</div>
+        <h3>토큰 베팅 시스템</h3>
+        <p>매 대국마다 토큰을 걸고 승리하면 획득. 광고 시청으로 토큰 충전 가능.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏆</div>
+        <h3>레이팅 & 등급</h3>
+        <p>입문, 초급, 중수, 고수, 마스터, 전설까지 6단계 등급으로 실력을 확인하세요.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📜</div>
+        <h3>대국 기록</h3>
+        <p>최근 10경기 기록과 누적 승/패/무 통계로 성장을 추적하세요.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎨</div>
+        <h3>한지 목판 테마</h3>
+        <p>전통 한지와 목판을 모티브로 한 다크/라이트 테마. 눈에 편안한 디자인.</p>
+      </div>
+    </div>
+  </section>
 
+  <section class="download" id="download">
+    <h2>지금 시작하세요</h2>
+    <p>iOS와 Android에서 무료로 다운로드할 수 있습니다.</p>
+    <div class="platform-badges">
+      <a href="https://apps.apple.com/kr/app/id6761509325" class="platform-badge" target="_blank" rel="noopener">iOS App Store</a>
+      <a href="https://play.google.com/store/apps/details?id=com.nadahacker.janggi_betting" class="platform-badge" target="_blank" rel="noopener">Google Play</a>
     </div>
   </section>
 
   <footer>
-    © 2026 나다랩<br>
-    Made with ❤️ for Crypto & Efficiency
+    © 2026 장기대전 &nbsp;·&nbsp;
+    <a href="privacy.html">개인정보처리방침</a> &nbsp;·&nbsp;
+    <a href="delete-account.html">계정 삭제</a> &nbsp;·&nbsp;
+    nadahacker@gmail.com
   </footer>
 </body>
 </html>
